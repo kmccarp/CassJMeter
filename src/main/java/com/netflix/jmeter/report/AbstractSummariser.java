@@ -19,9 +19,9 @@ public abstract class AbstractSummariser extends AbstractTestElement implements 
 {
     private static final long serialVersionUID = 3089085300897902045L;
     private static final Logger logger = LoggerFactory.getLogger(AbstractSummariser.class);
-    private static final ConcurrentHashMap<String, AbstractRunningSampleWrapper> allTests = new ConcurrentHashMap<String, AbstractRunningSampleWrapper>();
+    private static final ConcurrentHashMap<String, AbstractRunningSampleWrapper> allTests = new ConcurrentHashMap<>();
     private static final long INTERVAL = 60 * 1000; // Every Minute
-    private static boolean initalized = false;
+    private static boolean initalized;
 
     public AbstractSummariser()
     {
@@ -33,12 +33,12 @@ public abstract class AbstractSummariser extends AbstractTestElement implements 
     
     protected abstract AbstractRunningSampleWrapper newRunningSampleWrapper(String label);
     
-    public static abstract class AbstractRunningSampleWrapper
+    public abstract static class AbstractRunningSampleWrapper
     {
         protected volatile Calculator delta;
         protected volatile Calculator previous;
-        protected volatile long totalUpdated = 0;
-        private String name;
+        protected volatile long totalUpdated;
+        private final String name;
 
         public AbstractRunningSampleWrapper(String name)
         {
@@ -96,8 +96,9 @@ public abstract class AbstractSummariser extends AbstractTestElement implements 
 
     public void sampleOccurred(SampleEvent e)
     {
-        if (e.getResult() == null || e.getResult() == null)
+        if (e.getResult() == null) {
             return;
+        }
 
         SampleResult s = e.getResult();
         long now = System.currentTimeMillis();// in seconds
