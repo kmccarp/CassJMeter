@@ -18,9 +18,9 @@ import com.google.common.collect.Lists;
 
 public class YamlUpdater
 {
-    private Yaml yaml;
-    private Map<Object, Object> map;
-    private File yamlFile;
+    private final Yaml yaml;
+    private final Map<Object, Object> map;
+    private final File yamlFile;
 
     public YamlUpdater(String location) throws FileNotFoundException
     {
@@ -51,10 +51,10 @@ public class YamlUpdater
     }
 
     @SuppressWarnings("unchecked")
-    public void encriptionOption(String string, String internode_encryption)
+    public void encriptionOption(String string, String internodeEncryption)
     {
         Map m = (Map) map.get("encryption_options");
-        m.put(string, internode_encryption);
+        m.put(string, internodeEncryption);
     }
     
     public void dump() throws IOException
