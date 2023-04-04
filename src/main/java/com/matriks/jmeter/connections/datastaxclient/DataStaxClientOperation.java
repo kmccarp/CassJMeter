@@ -130,7 +130,7 @@ public class DataStaxClientOperation implements Operation {
 		
 		try {
 			Row row = rs.getUninterruptibly(1000000, TimeUnit.MILLISECONDS).one();
-			size = row != null ? row.getBytesUnsafe(colName.toString()).capacity() : 0;
+			size = row != null ? row.getBytesUnsafe(colName).capacity() : 0;
 		}
 
 		catch (TimeoutException e) {
