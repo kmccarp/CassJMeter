@@ -20,9 +20,9 @@ public class ServoSummariserGui extends AbstractListenerGui
     {
         return LABEL;
     }
-    
+
     @Override
-    public String getStaticLabel() 
+    public String getStaticLabel()
     {
         return LABEL;
     }

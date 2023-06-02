@@ -22,8 +22,8 @@ public class SystemUtils
         }
         return result.toString();
     }
-    
-    
+
+
     public static String convertToString(AbstractSerializer<?> ser, ByteBuffer byteBuffer)
     {
         String value;
@@ -33,5 +33,5 @@ public class SystemUtils
             value = ser.fromByteBuffer(byteBuffer).toString();
         return value;
     }
-    
+
 }

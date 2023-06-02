@@ -28,11 +28,11 @@ public abstract class AbstractSummariser extends AbstractTestElement implements 
         super();
         initializePlatform();
     }
-    
+
     protected abstract void initializePlatform();
-    
+
     protected abstract AbstractRunningSampleWrapper newRunningSampleWrapper(String label);
-    
+
     public static abstract class AbstractRunningSampleWrapper
     {
         protected volatile Calculator delta;

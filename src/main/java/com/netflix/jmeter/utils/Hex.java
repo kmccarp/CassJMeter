@@ -26,18 +26,19 @@ public class Hex
 
     // package protected for use by ByteBufferUtil. Do not modify this array !!
     static final char[] byteToChar = new char[16];
+
     static
-    {
+        {
         for (char c = 0; c < charToByte.length; ++c)
         {
             if (c >= '0' && c <= '9')
-                charToByte[c] = (byte)(c - '0');
+                charToByte[c] = (byte) (c - '0');
             else if (c >= 'A' && c <= 'F')
-                charToByte[c] = (byte)(c - 'A' + 10);
+                charToByte[c] = (byte) (c - 'A' + 10);
             else if (c >= 'a' && c <= 'f')
-                charToByte[c] = (byte)(c - 'a' + 10);
+                charToByte[c] = (byte) (c - 'a' + 10);
             else
-                charToByte[c] = (byte)-1;
+                charToByte[c] = (byte) -1;
         }
 
         for (int i = 0; i < 16; ++i)
@@ -58,7 +59,7 @@ public class Hex
             byte halfByte2 = charToByte[str.charAt(i * 2 + 1)];
             if (halfByte1 == -1 || halfByte2 == -1)
                 throw new NumberFormatException("Non-hex characters in " + str);
-            bytes[i] = (byte)((halfByte1 << 4) | halfByte2);
+            bytes[i] = (byte) ((halfByte1 << 4) | halfByte2);
         }
         return bytes;
     }

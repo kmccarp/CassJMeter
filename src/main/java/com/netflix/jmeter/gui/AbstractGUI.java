@@ -44,13 +44,13 @@ public abstract class AbstractGUI extends AbstractSamplerGui
         editConstraints.anchor = GridBagConstraints.FIRST_LINE_START;
         editConstraints.weightx = 1.0;
         editConstraints.fill = GridBagConstraints.HORIZONTAL;
-        
+
         addToPanel(mainPanel, labelConstraints, 0, 1, new JLabel("Column Family: ", JLabel.RIGHT));
         addToPanel(mainPanel, editConstraints, 1, 1, COLUMN_FAMILY = new JTextField());
         addToPanel(mainPanel, labelConstraints, 0, 2, new JLabel("Row Key: ", JLabel.RIGHT));
         addToPanel(mainPanel, editConstraints, 1, 2, KEY = new JTextField());
         init(mainPanel, labelConstraints, editConstraints);
-        
+
         addToPanel(mainPanel, labelConstraints, 0, 10, new JLabel("Key Serializer: ", JLabel.RIGHT));
         addToPanel(mainPanel, editConstraints, 1, 10, KSERIALIZER = new JComboBox(AbstractSampler.getSerializerNames().toArray()));
         JPanel container = new JPanel(new BorderLayout());
@@ -68,7 +68,7 @@ public abstract class AbstractGUI extends AbstractSamplerGui
         initFields();
         if (Connection.connection != null)
         {
-        	Connection.getInstance().shutdown();
+            Connection.getInstance().shutdown();
         }
     }
 
@@ -80,8 +80,8 @@ public abstract class AbstractGUI extends AbstractSamplerGui
         KSERIALIZER.setSelectedItem(element.getPropertyAsString(AbstractSampler.KEY_SERIALIZER_TYPE));
         COLUMN_FAMILY.setText(element.getPropertyAsString(AbstractSampler.COLUMN_FAMILY));
     }
-    
-    protected void configureTestElement(TestElement mc) 
+
+    protected void configureTestElement(TestElement mc)
     {
         super.configureTestElement(mc);
         if (mc instanceof AbstractSampler)
@@ -92,7 +92,7 @@ public abstract class AbstractGUI extends AbstractSamplerGui
             gSampler.setColumnFamily(COLUMN_FAMILY.getText());
         }
     }
-    
+
     public static Component addHelpLinkToPanel(Container panel, String helpPage)
     {
         if (!java.awt.Desktop.isDesktopSupported())

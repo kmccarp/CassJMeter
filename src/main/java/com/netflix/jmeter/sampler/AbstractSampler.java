@@ -40,8 +40,9 @@ public abstract class AbstractSampler extends org.apache.jmeter.samplers.Abstrac
 
     @SuppressWarnings("rawtypes")
     public static Map<String, AbstractSerializer> serializers = Maps.newHashMap();
+
     static
-    {
+        {
         serializers.put("StringSerializer", StringSerializer.get());
         serializers.put("IntegerSerializer", IntegerSerializer.get());
         serializers.put("LongSerializer", LongSerializer.get());
@@ -267,7 +268,7 @@ public abstract class AbstractSampler extends org.apache.jmeter.samplers.Abstrac
         {
             this(response, size, constructRequest(host, key, kv), latency);
         }
-        
+
         private static String constructRequest(String host, Object key, Object cn, Object value)
         {
             StringBuffer buff = new StringBuffer();
@@ -284,19 +285,19 @@ public abstract class AbstractSampler extends org.apache.jmeter.samplers.Abstrac
                 appendKeyValue(buff, entry.getKey(), entry.getValue());
             return buff.toString();
         }
-        
+
         private static void appendHostAndRowKey(StringBuffer buff, String host, Object key)
         {
             buff.append(EXECUTED_ON).append(host).append(SystemUtils.NEW_LINE);
-            buff.append(ROW_KEY).append(key).append(SystemUtils.NEW_LINE);            
+            buff.append(ROW_KEY).append(key).append(SystemUtils.NEW_LINE);
         }
 
         private static void appendKeyValue(StringBuffer buff, Object cn, Object value)
         {
             if (cn != null)
-                buff.append(COLUMN_NAME).append(null == cn ? "" :cn).append(SystemUtils.NEW_LINE);
+                buff.append(COLUMN_NAME).append(null == cn ? "" : cn).append(SystemUtils.NEW_LINE);
             if (value != null)
-                buff.append(COLUMN_VALUE).append(null == value ? "" :value).append(SystemUtils.NEW_LINE);
+                buff.append(COLUMN_VALUE).append(null == value ? "" : value).append(SystemUtils.NEW_LINE);
         }
     }
 

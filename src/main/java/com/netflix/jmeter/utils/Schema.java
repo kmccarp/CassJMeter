@@ -57,7 +57,7 @@ public class Schema
         Map<String, SchemaProperties> removedDuplicates = Maps.newConcurrentMap();
         for (SchemaProperties props :  Properties.instance.getSchemas())
             removedDuplicates.put(props.getColumn_family(), props);
-        
+
         OUTER: for (SchemaProperties props : removedDuplicates.values())
         {
             List<CfDef> list = ksd.getCf_defs() == null ? new ArrayList<CfDef>() : ksd.getCf_defs();
@@ -66,7 +66,7 @@ public class Schema
                 if (cfd.getName().equals(props.getColumn_family()))
                     continue OUTER;
             }
-            
+
             if (addToKS)
             {
                 ksd.addToCf_defs(columnFamilyDef(props));

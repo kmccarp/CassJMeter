@@ -21,7 +21,7 @@ public class Properties
         schemas.add(newProp);
         logger.info("Queing schema change for the cf: {}", newProp);
     }
-    
+
     public List<SchemaProperties> getSchemas()
     {
         return schemas;

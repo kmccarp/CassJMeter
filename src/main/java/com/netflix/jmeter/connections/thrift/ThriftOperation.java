@@ -97,7 +97,7 @@ public class ThriftOperation implements Operation
                     writer.prepareAdd(name, value);
                 }
                 writer.insert(rKey);
-        }
+            }
         }
         catch (Exception e)
         {

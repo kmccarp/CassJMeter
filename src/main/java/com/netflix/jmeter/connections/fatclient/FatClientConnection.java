@@ -79,11 +79,11 @@ public class FatClientConnection extends Connection
     @Override
     public Operation newOperation(String columnName, boolean isCounter)
     {
-        return new FatClientOperation(Properties.instance.cassandra.getWriteConsistency(), 
-                Properties.instance.cassandra.getReadConsistency(), 
-                Properties.instance.cassandra.getKeyspace(), 
-                columnName,
-                isCounter);
+        return new FatClientOperation(Properties.instance.cassandra.getWriteConsistency(),
+            Properties.instance.cassandra.getReadConsistency(),
+            Properties.instance.cassandra.getKeyspace(),
+            columnName,
+            isCounter);
     }
 
     @Override

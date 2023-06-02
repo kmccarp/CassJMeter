@@ -61,7 +61,7 @@ public class SchemaProperties extends ConfigTestElement implements TestBean
     {
         setProperty(default_validation_class, val);
     }
-    
+
     public String getKeys_cached()
     {
         return getPropertyAsString(keys_cached);
@@ -111,7 +111,7 @@ public class SchemaProperties extends ConfigTestElement implements TestBean
     {
         setProperty(comparator_type, val);
     }
-    
+
     public String getColumn_family()
     {
         return getPropertyAsString(column_family);
@@ -120,5 +120,5 @@ public class SchemaProperties extends ConfigTestElement implements TestBean
     public void setColumn_family(String val)
     {
         setProperty(column_family, val);
-    }    
+    }
 }

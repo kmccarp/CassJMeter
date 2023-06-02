@@ -166,7 +166,7 @@ public abstract class Connection
     }
 
     public abstract Operation newOperation(String columnName, boolean isCounter);
-    
+
     public abstract String logConnections();
 
     public abstract void shutdown();

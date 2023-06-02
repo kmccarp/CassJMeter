@@ -124,7 +124,7 @@ public class FatClientOperation extends ThriftOperation
         ByteBuffer rKey = kser.toByteBuffer(rkey);
         ByteBuffer sname = colser.toByteBuffer(startColumn);
         ByteBuffer ename = colser.toByteBuffer(endColumn);
-        
+
         List<ReadCommand> commands = new ArrayList<ReadCommand>();
         ReadCommand readCommand = new SliceFromReadCommand(ks, rKey, new ColumnParent(cf), sname, ename, reversed, count);
         readCommand.setDigestQuery(false);

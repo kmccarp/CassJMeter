@@ -42,7 +42,7 @@ public class YamlUpdater
         List<?> seedp = (List) map.get("seed_provider");
         Map m = (Map) seedp.get(0);
         m.put("class_name", "org.apache.cassandra.locator.SimpleSeedProvider");
-        
+
         List lst = Lists.newArrayList();
         Map map = new HashMap();
         map.put("seeds", StringUtils.join(seeds, ","));
@@ -56,7 +56,7 @@ public class YamlUpdater
         Map m = (Map) map.get("encryption_options");
         m.put(string, internode_encryption);
     }
-    
+
     public void dump() throws IOException
     {
         yaml.dump(map, new FileWriter(yamlFile));
